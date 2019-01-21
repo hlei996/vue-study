@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/vue-2.4.0.js"></script>
+    <style>
+        .mv-enter,
+        .mv-leave-to {
+            opacity: 0;
+            transform: translateX(200px);
+        }
+        .mv-enter-active,
+        .mv-leave-active {
+            transition: all 1s linear;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <button @click="flag=!flag">toggle</button>
+        <transition name="mv">
+            <p v-show="flag">这是一个标签</p>
+        </transition>
+    </div>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                flag: false,
+            },
+            methods: {
+                
+            },
+        })
+    </script>
+</body>
+</html>

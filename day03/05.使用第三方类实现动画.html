@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="lib/vue-2.4.0.js"></script>
+    <link rel="stylesheet" href="./lib/animate.css">
+</head>
+<body>
+    
+    <div id="app">
+        <button @click="flag = !flag">toggle show</button>
+        <!-- :duration 来设置 入场动画的时间和出场动画的时间 -->
+        <transition 
+        enter-active-class="zoomIn"
+        leave-active-class="zoomOut"
+        :duration="{enter: 2000, leave: 400,}">
+            <!-- 要在添加动画的元素上加上 class="animated"-->
+            <p v-show="flag" class="animated">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </transition>
+    </div>
+
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                flag: false,
+            }
+        })
+    </script>
+</body>
+</html>
